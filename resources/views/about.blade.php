@@ -1,8 +1,10 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Halaman About</h1>
-    <h3>{{ $name }}</h3>
-    <p>{{ $email }}</p>
-    <img src="img/{{ $image }}" alt="{{ $name }}" width="200" class="img-thumbnail rounded-circle">
+    <div class="mt-5 text-center">
+        <h3 class="mt-10">{{ $name }} S.Tr.T</h3>
+        <p>{{ $email }}</p>
+        <img src="img/{{ $image }}" alt="{{ $name }}" class="object-fit-scale img-thumbnail rounded-circle"
+            style="width: 200px; height: 200px;"" />
+    </div>
 @endsection

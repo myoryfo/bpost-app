@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="/">BPost</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -43,8 +43,7 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a href="/login {{ $active === 'categories' ? 'active' : '' }}" class="nav-link"><i
-                                class="bi bi-box-arrow-in-right"></i> Login</a>
+                        <a href="/login" class="active nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                     </li>
                 @endauth
 

@@ -1,21 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
-html,
-body {
-  height: 100%;
-  
+
+:root {
+  --primary : #8CB9BD;
+  --secoundary: #FEFBF6;
+  --third: #ECB159;
+  --fourth: #B67352;
 }
 
+html,
+body {
+  background-color: var(--secoundary);
+  height: 100%;
+}
+
+.btn {
+  background-color: var(--primary);
+}
 
 .form-signin .form-floating:focus-within {
   z-index: 2;
 }
 
-.navbar-brand {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-  font-style: italic;
-}
 
 .form-signin input[type="email"] {
   margin-bottom: -1px;
@@ -33,3 +39,15 @@ body {
   border-radius: 0;
   margin-bottom: -1px;
 }
+
+.navbar {
+  background-color: var(--primary);
+}
+
+.navbar-brand {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+

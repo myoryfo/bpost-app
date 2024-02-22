@@ -27,8 +27,17 @@
         </div>
 
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/random/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
-                alt="image not avaible">
+
+            @if ($posts[0]->image)
+                <div style="max-height: 350px; overflow: hidden;">
+                    <img src="{{ asset('storage/' . $posts[0]->image) }}" class="card-img-top" alt="image not avaible">
+                </div>
+            @else
+                <img src="https://source.unsplash.com/random/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
+                    alt="image not avaible">
+            @endif
+
+
             <div class="card-body text-center">
                 <h3 class="card-title">{{ $posts[0]->tittle }}</h3>
                 <small class="text-muted">
@@ -50,14 +59,18 @@
         <div class="container">
             <div class="row">
                 @foreach ($posts->skip(1) as $post)
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-3 d-flex align-items-stretch">
                         <div class="card">
                             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a
                                     href="/posts?category={{ $post->category->slug }}"
                                     class="text-decoration-none text-light">{{ $post->category->name }}</a></div>
-                            <img src="https://source.unsplash.com/random/500x400?{{ $post->category->name }}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
+                            @if ($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="...">
+                            @else
+                                <img src="https://source.unsplash.com/random/500x400?{{ $post->category->name }}"
+                                    class="card-img-top" alt="...">
+                            @endif
+                            <div class="card-body d-inline-flex flex-column align-items-stretch">
 
                                 <h5><a href="/posts/{{ $post->slug }}"
                                         class="text-decoration-none text-dark">{{ $post->tittle }}</a>
@@ -69,10 +82,14 @@
                                     </p>
                                 </small>
                                 <p class="card-text">{{ $post->excerpt }}</p>
+                                <div class="mt-auto">
 
-                                <a href="/posts/{{ $post->slug }}"
-                                    class="text-decoration-none btn btn-info text-light">Read More</a>
 
+                                    <a href="/posts/{{ $post->slug }}"
+                                        class="text-decoration-none btn btn-light text-light ">Read
+                                        More</a>
+
+                                </div>
                             </div>
                         </div>
                     </div>
